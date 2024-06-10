@@ -9,7 +9,7 @@
         <a href="/sign-in" class="nav-link">Sign-in</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/login" class="nav-link">Login</a>
+        <a href="/" class="nav-link">Login</a>
       </li>
     </ul>
 </nav>

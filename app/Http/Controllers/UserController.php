@@ -11,14 +11,8 @@ class UserController extends Controller
 {
     public function criar(Request $request){
         $email = $request->email ?? null;
-        $senha = $request->password ?? null;
-        $dadosUsuario = [
-            'email'=>$email,
-            'password'=>$senha
-        ];
-        if(Auth::attempt($dadosUsuario)){
-            return redirect('login')->with('status', 'contaExiste');
-
+        if(User::where('email', $email)){
+            return redirect('/')->with('status', 'contaExiste');
         }else{
             $usuario = new User;
             $usuario->name= $request->nome;
@@ -42,7 +36,7 @@ class UserController extends Controller
             $_SESSION['status'] = 'verificado';
             return view('home');
         }else{
-            return redirect('login')->with('status', 'erro');
+            return redirect('/')->with('status', 'erro');
         }
     }
 }
